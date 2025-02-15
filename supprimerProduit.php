@@ -1,0 +1,32 @@
+<?php
+require_once 'fonctions.php';
+if(isset($_GET['id'])){
+    $id_produit=$_GET['id'];
+    if(is_numeric($id_produit)){
+        $produit=getProduitById($id_produit);
+        if($produit){
+            supprimerProduit($id_produit);
+            ?>
+            <script>
+                window.location.href='produit.php';
+            </script>
+            <?php
+        }
+        else{
+            ?>
+            <script>
+                window.location.href='produit.php';
+            </script>
+            <?php
+        }
+    }
+    else{
+        ?>
+            <script>
+                window.location.href='produit.php';
+            </script>
+            <?php
+    }
+}
+
+?>
